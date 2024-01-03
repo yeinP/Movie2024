@@ -1,27 +1,17 @@
 import React from 'react';
+import './App.css';
+import { HashRouter, Route } from 'react-router-dom';
+import About from './routes/About';
+import Home from './routes/Home';
 
-class App extends React.Component {
-  //state 정의
-  state = {
-    count : 0,
-  }
-  add=() => {
-    this.setState(current => ({
-      count: current.count + 1}));
-  };
-  minus = () => {
-    this.setState(current => ({
-      count: current.count - 1}));
-  }
-  render() {
-    return (
-      <div>
-        <h1>the number is : {this.state.count}</h1>
-        <button onClick={this.add}>Add</button>
-        <button onClick={this.minus}>Minus</button>
-      </div>
-  )}
-
+function App() {
+  return (
+    <HashRouter>
+      <Route path="/" component={Home} />
+      <Route path="/about" component={About} />
+    </HashRouter>
+  
+  )
 }
 
 export default App;
